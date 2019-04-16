@@ -1,0 +1,12 @@
+import pandas as pd
+import xlwt
+import xlrd
+import openpyxl
+import numpy
+
+from pandas import *
+xls = ExcelFile("C:\\Users\\trent.williams\\Desktop\\test_dict.csv.xlsx")
+df = xls.parse(xls.sheet_names[5])
+require_cols = [0,3]
+required_df = pd.read_excel(xls, usecols = require_cols)
+print(required_df.set_index('Fresh Direct Item').transpose().to_dict(orient='list'))
